@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application</title>
+    <script src="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css"></script>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/home">Home</a>
+
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 mt-5 mb-5">
+            <p>From Database 1 : <span th:text="${database1}"></span></p>
+            <p>To Database 2 : <span th:text="${database2}"></span></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 mt-5 mb-5">
+            <h3>Storage Location</h3>
+            <table id="storageLocation" class="table table-responsive" style="width: 100%">
+                <thead>
+                <tr>
+                    <th style="width:50%">Id</th>
+                    <th style="width:50%">Name</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item, stats: ${storageLocations}">
+                        <td th:text="${item.getId()}"></td>
+                        <td th:text="${item.getName()}"></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+
+    </div>
+<!--    <div class="row">-->
+<!--        <div class="col-12 mt-5 mb-5">-->
+<!--            <h3>Warehouse</h3>-->
+<!--            <table id="warehouse" class="table table-responsive" style="width: 100%">-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th style="width:50%">Id</th>-->
+<!--                    <th style="width:50%">Name</th>-->
+
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                <tr th:each="item, stats: ${warehouses}">-->
+<!--                    <td th:text="${item.getWhId()}"></td>-->
+<!--                    <td th:text="${item.getName()}"></td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--                <tfoot>-->
+<!--                <tr>-->
+<!--                    <th>Id</th>-->
+<!--                    <th>Name</th>-->
+<!--                </tr>-->
+<!--                </tfoot>-->
+<!--            </table>-->
+<!--        </div>-->
+<!--    </div>-->
+</div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+
+<script>
+
+
+</script>
+</body>
+</html>
